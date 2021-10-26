@@ -257,7 +257,7 @@ st.markdown('')
 st.markdown('')
 st.subheader('Modeling Procedure')
 st.markdown('Modeling utilized data from the 2019 American Community Survey from the US Census Bureau. 20% of data was withheld for testing, and model training utilized cross-validation to tune hyperparameters. The model predicts the percent of households that have broadband in the tract, and uses information on the median household income, median property value, population density, and the percent of households with a computer or other internet device. The final regression model achieved an $R^2$ value of 0.90 against the withheld testing data.')
-st.image(Image.open('Predicted_vs_Actual.png'))
+#st.image(Image.open('Predicted_vs_Actual.png'))
 
 
 #####
@@ -271,7 +271,7 @@ st.subheader('Existing Racial and Ethnic Disparities in Broadband Access')
 st.markdown('Broadband access in Tennessee varies by many factors, including income, urban/rural location, and race and ethnicity. For instance there is noticeably lower broadband access today for those who are Black or African American and those who are Hispanic or Latino. This mirrors national trends as well. These groups also tend to have lower incomes, but controlling for income is not even enough to account for differences in broadband access by race.')
 st.markdown('You can see this in the plot below. One clear trend here is that the highest incomes are in census tracts with a low proportion of Black or African American people. You can also see that household broadband generally increases with income. However, even when we consider a single income level straight across the chart, for instance $50,000/year, the percent of households with broadband decreases as the percent of Black or African American residents increases.')
 st.markdown('This is one of the opportunities for broadband business expansion that the model is picking up. If two households have the same income and other factors regardless of race or ethnicity, we should expect them to be equally good broadband customers. Not all tracts identified as good expansion opportunities have a large minority population, but since many of the tracts do, we can simultaneously capture new customers and start to narrow existing gaps in access.')
-st.image(Image.open('Black_Income_Broadband.png'))
+#st.image(Image.open('Black_Income_Broadband.png'))
 
 
 #Future improvements:
