@@ -2,4 +2,3 @@ pandas
 numpy
 streamlit
 bokeh==2.2.2
-PIL
