@@ -6,7 +6,7 @@ from bokeh.models import GeoJSONDataSource, LinearColorMapper, ColorBar, FixedTi
 from bokeh.palettes import brewer, gray, Colorblind
 from bokeh.tile_providers import get_provider, STAMEN_TONER_BACKGROUND, STAMEN_TONER_LABELS
 from bokeh.layouts import row, column, gridplot
-from pillow import Image
+from PIL import Image
 
 #import dataframe
 map_df_full=pd.read_pickle('./map_df_tn.pkl')
