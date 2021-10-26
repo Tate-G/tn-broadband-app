@@ -3,3 +3,4 @@ numpy
 streamlit
 bokeh==2.2.2
 geopandas
+pillow
