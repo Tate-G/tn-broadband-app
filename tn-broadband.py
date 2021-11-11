@@ -27,9 +27,11 @@ field_dict={'All Groups':'Pred_New_BB_Households',
             'Underserved Groups':'Pred_New_BB_Underrep_Households',
             'Underserved Near High Broadband':'Pred_New_BB_Underrep_HH_Neighbor_High'}
 actual_dict={'Actual Percent Broadband':'Pct_Broadband',
+             'Actual Median Household Income':'Median_Household_Income',
             'Actual Percent White Non-Hispanic':'Pct_White_Non_Hispanic'}
-quantity_options=['Actual Percent Broadband','Actual Percent White Non-Hispanic',
+quantity_options=['Actual Percent Broadband','Actual Percent White Non-Hispanic','Actual Median Household Income',
                   'Predicted New Customers','Predicted New Annual Revenue']
+percent_quantities=['Actual Percent Broadband','Actual Percent White Non-Hispanic']
 
 #allow user to input values in the sidebar, with default values for the first figures displayed when opening the app
 county_options=county_codes['County_Name'].tolist() #['All Counties']+county_codes['County_Name'].tolist()
@@ -47,7 +49,9 @@ st.sidebar.markdown('')
 st.sidebar.markdown('')
 st.sidebar.subheader('Garrett Tate')
 st.sidebar.subheader('garrett.tate@mg.thedataincubator.com')
+st.sidebar.subheader('github.com/Tate-G/tn-broadband-app')
 st.sidebar.subheader('tn-broadband.herokuapp.com')
+
 
 if county=='All Counties':
     map_df=map_df_full.copy()
@@ -69,9 +73,12 @@ for _,val in field_dict.items():
 if quantity in actual_dict.keys():
     field=actual_dict[quantity]
     color_scale='RdBu'
-    tick_format='0%'
     pad=0
-if quantity=='Predicted New Customers':
+    if quantity in percent_quantities:
+        tick_format='0%'
+    else:
+        tick_format='$0,0'
+elif quantity=='Predicted New Customers':
     field=field_dict[category]
     color_scale='Blues'
     tick_format='0,0'
@@ -81,6 +88,8 @@ elif quantity=='Predicted New Annual Revenue':
     color_scale='Greens'
     tick_format='$0,0'
     pad=2 #remove lower lighter colors
+    
+
 
 if quantity in actual_dict.keys():
     tooltips=[(quantity,'@'+field+'{'+tick_format+'}'),]
@@ -106,12 +115,12 @@ while (high-low)/interval+pad > 9:
     high=interval*np.ceil(np.max(map_df[field])/interval)
     low=interval*np.floor(np.min(map_df[field])/interval)
 
-if quantity in actual_dict.keys():
+if quantity in percent_quantities:
     interval=interval/100
     low=low/100
     high=high/100
-for _,val in actual_dict.items():
-    map_df[val]=map_df[val]/100
+for key in percent_quantities:
+    map_df[actual_dict[key]]=map_df[actual_dict[key]]/100
     
 
 #convert the dataframe into a GeoJSON
