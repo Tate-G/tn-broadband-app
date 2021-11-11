@@ -1,5 +1,5 @@
 # tn-broadband-app
-This repository contains documentation and source files for the deployed app at https://tn-broadband.herokuapp.com. The app helps broadband companies identify specific areas in Tennessee to capture new customers, including some opportunities to simultaneously grow revenue while also starting to close racial and ethnic gaps in household broadband.
+This repository contains documentation and source files for the deployed app at https://tn-broadband.herokuapp.com. The app helps broadband internet companies identify specific areas in Tennessee to capture new customers, including some opportunities to simultaneously grow revenue while also starting to close racial and ethnic gaps in household broadband.
 
 For information on the modeling procedure see TN_Broadband_Modeling.ipynb, and for the python script that runs the app see tn-broadband.py
 
